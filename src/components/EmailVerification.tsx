@@ -19,7 +19,7 @@ export default function EmailVerification({ onVerified }: { onVerified: () => vo
       transition={{ duration: 0.5 }}
     >
       <h2 className="text-2xl font-bold mb-4">Verify Your Email</h2>
-      <p className="mb-4">We've sent a verification code to your email. Please enter it below.</p>
+      <p className="mb-4">We&apos;ve sent a verification code to your email. Please enter it below.</p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="code" className="block text-sm font-medium text-gray-700">
