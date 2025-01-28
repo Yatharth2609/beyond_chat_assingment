@@ -7,6 +7,7 @@ import { Menu, X, Home, Settings, MessageCircle, LogOut } from "lucide-react"
 import Link from "next/link"
 import { motion as motion2 } from "framer-motion"
 import Image from "next/image"
+import logo from "../../public/download.jpg"
 
 const AnimatedLink = motion2(Link)
 
@@ -19,10 +20,14 @@ export default function Navbar() {
     router.push("/signin")
   }
 
+  const goBack = () => {
+    router.push("/")
+  }
+
   const menuItems = [
-    { icon: Home, text: "Dashboard", href: "/dashboard" },
-    { icon: MessageCircle, text: "Chatbot", href: "/chatbot" },
-    { icon: Settings, text: "Settings", href: "/settings" },
+    { icon: Home, text: "Dashboard", href: "/signin" },
+    { icon: MessageCircle, text: "Chatbot", href: "/signin" },
+    { icon: Settings, text: "Settings", href: "/signin" },
   ]
 
   return (
@@ -31,7 +36,8 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Image className="h-8 w-auto" src={"./download.jpg"} alt="BeyondChats" />
+              <Image src={logo} width={38} height={38} alt="BeyondChats" />
+              <button onClick={goBack} className="text-xl font-bold text-gray-800">Beyond Chats</button>
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-4">

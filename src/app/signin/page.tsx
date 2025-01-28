@@ -61,7 +61,7 @@ export default function SignIn() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md bg-white rounded-lg shadow-xl p-8"
       >
-        <h1 className="text-3xl font-bold text-center mb-6">Sign In</h1>
+        <h1 className="text-3xl text-black font-bold text-center mb-6">Sign In</h1>
         <div className="space-y-4">
           <GoogleLogin onSuccess={handleGoogleSuccess} onError={() => setError("Google Sign In Failed")} />
           <div className="flex items-center">
@@ -80,7 +80,7 @@ export default function SignIn() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full text-black border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             <div>
@@ -93,7 +93,7 @@ export default function SignIn() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full text-black border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
             {error && <p className="text-red-500 text-sm">{error}</p>}

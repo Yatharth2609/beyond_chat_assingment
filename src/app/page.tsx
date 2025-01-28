@@ -58,7 +58,7 @@ export default function Registration() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen text-black bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -70,9 +70,9 @@ export default function Registration() {
         <div className="space-y-4">
           <GoogleLogin onSuccess={handleGoogleSuccess} onError={() => setError("Google Sign In Failed")} />
           <div className="flex items-center">
-            <div className="flex-1 border-t border-gray-300"></div>
+            <div className="flex-1 border-t border-gray-300"/>
             <span className="px-4 text-gray-500 text-sm">or</span>
-            <div className="flex-1 border-t border-gray-300"></div>
+            <div className="flex-1 border-t border-gray-300"/>
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>

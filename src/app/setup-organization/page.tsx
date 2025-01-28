@@ -34,7 +34,7 @@ function SetupOrganization() {
         className="w-full max-w-md bg-white rounded-lg shadow-xl p-8"
       >
         <ProgressIndicator currentStep={1} />
-        <h1 className="text-3xl font-bold text-center mb-6">Setup Your Organization</h1>
+        <h1 className="text-3xl text-black font-bold text-center mb-6">Setup Your Organization</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
@@ -46,7 +46,7 @@ function SetupOrganization() {
               value={companyName}
               onChange={(e) => setCompanyName(e.target.value)}
               required
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block text-black w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <div>
@@ -59,7 +59,7 @@ function SetupOrganization() {
               value={companyWebsite}
               onChange={(e) => setCompanyWebsite(e.target.value)}
               required
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block text-black w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <div>
@@ -72,7 +72,7 @@ function SetupOrganization() {
               onChange={(e) => setCompanyDescription(e.target.value)}
               required
               rows={4}
-              className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block text-black w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
           <button
