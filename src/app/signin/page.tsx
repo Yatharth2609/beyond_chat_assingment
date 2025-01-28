@@ -1,58 +1,59 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { useRouter } from "next/navigation"
-import { GoogleLogin } from "@react-oauth/google"
-import { setUserStep, FLOW_STEPS } from "../../utils/flowControl"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import { GoogleLogin, type CredentialResponse } from "@react-oauth/google";
+import { setUserStep, FLOW_STEPS } from "../../utils/flowControl";
 
 export default function SignIn() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
-  const router = useRouter()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       const response = await fetch("/api/auth/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
-      })
-      const data = await response.json()
+      });
+      const data = await response.json();
       if (response.ok) {
-        localStorage.setItem("token", data.token)
-        setUserStep(FLOW_STEPS.SETUP_ORGANIZATION)
-        router.push("/setup-organization")
+        localStorage.setItem("token", data.token);
+        setUserStep(FLOW_STEPS.SETUP_ORGANIZATION);
+        router.push("/setup-organization");
       } else {
-        setError(data.error)
+        setError(data.error);
       }
     } catch (error) {
-      setError("Something went wrong: " + error)
+      setError("Something went wrong: " + error);
     }
-  }
+  };
 
-  const handleGoogleSuccess = async (credentialResponse: any) => {
+  const handleGoogleSuccess = async (
+    credentialResponse: CredentialResponse
+  ) => {
     try {
       const response = await fetch("/api/auth/google", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ token: credentialResponse.credential }),
-      })
-      const data = await response.json()
+      });
+      const data = await response.json();
       if (response.ok) {
-        localStorage.setItem("token", data.token)
-        setUserStep(FLOW_STEPS.SETUP_ORGANIZATION)
-        router.push("/setup-organization")
+        localStorage.setItem("token", data.token);
+        setUserStep(FLOW_STEPS.SETUP_ORGANIZATION);
+        router.push("/setup-organization");
       } else {
-        setError(data.error)
+        setError(data.error);
       }
     } catch (error) {
-      setError("Something went wrong: " + error)
+      setError("Something went wrong: " + error);
     }
-  }
-
+  };
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col items-center justify-center p-4">
       <motion.div
@@ -61,9 +62,14 @@ export default function SignIn() {
         transition={{ duration: 0.5 }}
         className="w-full max-w-md bg-white rounded-lg shadow-xl p-8"
       >
-        <h1 className="text-3xl text-black font-bold text-center mb-6">Sign In</h1>
+        <h1 className="text-3xl text-black font-bold text-center mb-6">
+          Sign In
+        </h1>
         <div className="space-y-4">
-          <GoogleLogin onSuccess={handleGoogleSuccess} onError={() => setError("Google Sign In Failed")} />
+          <GoogleLogin
+            onSuccess={handleGoogleSuccess}
+            onError={() => setError("Google Sign In Failed")}
+          />
           <div className="flex items-center">
             <div className="flex-1 border-t border-gray-300"></div>
             <span className="px-4 text-gray-500 text-sm">or</span>
@@ -71,7 +77,10 @@ export default function SignIn() {
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Email
               </label>
               <input
@@ -84,7 +93,10 @@ export default function SignIn() {
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700"
+              >
                 Password
               </label>
               <input
@@ -107,6 +119,5 @@ export default function SignIn() {
         </div>
       </motion.div>
     </div>
-  )
+  );
 }
-

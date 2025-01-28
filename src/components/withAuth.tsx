@@ -4,8 +4,8 @@ import { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { getUserStep, FLOW_STEPS } from "../utils/flowControl"
 
-export function withAuth(WrappedComponent: React.ComponentType) {
-  return function AuthenticatedComponent(props: any) {
+export function withAuth<P extends object>(WrappedComponent: React.ComponentType<P>) {
+  return function AuthenticatedComponent(props: P) {
     const router = useRouter()
 
     useEffect(() => {

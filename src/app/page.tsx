@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import ProgressIndicator from "../components/ProgressIndicator"
 import { useRouter } from "next/navigation"
-import { GoogleLogin } from "@react-oauth/google"
+import { GoogleLogin, type CredentialResponse } from "@react-oauth/google"
 import { setUserStep, FLOW_STEPS } from "../utils/flowControl"
 
 export default function Registration() {
@@ -38,7 +38,7 @@ export default function Registration() {
     }
   }
 
-  const handleGoogleSuccess = async (credentialResponse: any) => {
+  const handleGoogleSuccess = async (credentialResponse: CredentialResponse) => {
     try {
       const response = await fetch("/api/auth/google", {
         method: "POST",
