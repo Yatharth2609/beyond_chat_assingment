@@ -15,14 +15,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const clientId = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID
+
+  if (!clientId) {
+    console.error("Missing NEXT_PUBLIC_GOOGLE_CLIENT_ID environment variable")
+  }
+
   return (
     <html lang="en">
-      <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
-        <body className={inter.className}>
-          <Navbar />
-          <main>{children}</main>
-        </body>
-      </GoogleOAuthProvider>
+      <body className={inter.className}>
+        {clientId ? (
+          <GoogleOAuthProvider clientId={clientId}>
+            <Navbar />
+            <main>{children}</main>
+          </GoogleOAuthProvider>
+        ) : (
+          <div className="min-h-screen flex items-center justify-center">
+            <p className="text-red-500">Google OAuth configuration is missing</p>
+          </div>
+        )}
+      </body>
     </html>
   )
 }
