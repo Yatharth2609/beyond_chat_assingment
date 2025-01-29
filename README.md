@@ -84,7 +84,7 @@ Create a `.env` file with:
 ```
 DATABASE_URL="file:./dev.db"
 JWT_SECRET="your-secret-key"
-GOOGLE_CLIENT_ID="your-google-client-id"
+NEXT_PUBLIC_GOOGLE_CLIENT_ID="your-google-client-id"
 GOOGLE_CLIENT_SECRET="your-google-client-secret"
 ```
 
