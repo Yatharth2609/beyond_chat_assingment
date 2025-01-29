@@ -1,6 +1,6 @@
 # BeyondChats - AI Chatbot Setup Platform
 
-Here is my submission for Node Frontend Assingment for the role of Front End Web Developer at BeyondChats. All the details about the project has been explained below. The project is hosted on Vercel and can be accessed [here](https://vermillion-alfajores-82eed5.netlify.app/). The project is built using Next.js, Tailwind CSS, and TypeScript.
+Here is my submission for Node Frontend Assingment for the role of Front End Web Developer at BeyondChats. All the details about the project has been explained below. The project is hosted on Vercel and can be accessed [here](https://beyond-chat-assingment.onrender.com/). The project is built using Next.js, Tailwind CSS, and TypeScript.
 
 ## 🚀 Features
 
